@@ -1,0 +1,70 @@
+<div class="p-4 bg-light rounded-3 text-center">
+    <h1 class="display-5 fw-bold">Welcome to Spendings App!</h1>
+    <h2 class="mt-4">Fill in the form to register.</h2>
+</div>
+<form [formGroup]="registerFormGroup" (submit)="onSubmit()">
+    <div formGroupName="user" class="form-outline mb-4">
+        <div class="d-flex justify-content-center">
+            <div class="fs-4">
+                <div class="input-space form-outline mb-4">
+                    <input formControlName="username" type="text" placeholder="Username" class="form-control fs-4">
+                    <div *ngIf="username?.invalid && (username?.dirty || username?.touched)" class="alert alert-danger">
+                        <div *ngIf="username?.errors?.['required'] || username?.errors?.['notOnlyWhitespace']">
+                            Username is required.
+                        </div>
+                        <div *ngIf="username?.errors?.['minlength']">
+                            Username must be at least 3 characters long.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center form-outline mb-4">
+            <div class="fs-4">
+                <div class="input-space">
+                    <input formControlName="password" type="password" placeholder="Password" class="form-control fs-4">
+                    <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="alert alert-danger">
+                        <div *ngIf="password?.errors?.['required'] || password?.errors?.['notOnlyWhitespace']">
+                            Password is required.
+                        </div>
+                        <div *ngIf="password?.errors?.['minlength']">
+                            Password must be at least 5 characters long.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <div class="fs-4">
+                <div class="input-space">
+                    <input formControlName="email" type="email" placeholder="Email" class="form-control fs-4">
+                    <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert alert-danger">
+                        <div *ngIf="email?.errors?.['required'] || email?.errors?.['notOnlyWhitespace']">
+                            Email is required.
+                        </div>
+                        <div *ngIf="email?.errors?.['pattern']">
+                            Provide a valid email.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center mt-4">
+            <div class="input-space">
+                <label class="au-checkbox">
+                    <input type="checkbox" (change)="agreeToTermsAndConditions($event)">
+                    <span class="au-checkmark"></span>I agree to the Terms and Conditions and the Privacy Policy.
+                </label>
+            </div>
+        </div>
+        <div *ngIf="errorMessage" class="alert alert-danger fs-4">
+            {{ errorMessage }}
+        </div>
+    </div>
+    <div class="text-center mb-4">
+        <button type="submit" class="btn btn-primary btn-lg">Register</button>
+    </div>
+</form>
+<div class="text-center mb-4">
+    <p class="fs-10 mb-4">Already a member? <a routerLink="/login">Login</a></p>
+</div>

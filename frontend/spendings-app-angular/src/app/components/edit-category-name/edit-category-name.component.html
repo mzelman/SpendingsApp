@@ -1,0 +1,30 @@
+<div class="popup-window">
+  <div class="d-flex align-items-center justify-content-center mt-4">
+    <button class="btn btn-primary btn-sm spaced" (click)=changeIconLeft()><i class="bi bi-arrow-left"></i></button>
+    <div class="primary lg feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4 spaced"><i
+        class="{{ icon }}"></i></div>
+    <button class="btn btn-primary btn-sm" (click)=changeIconRight()><i class="bi bi-arrow-right"></i></button>
+  </div>
+  <form [formGroup]="categoryFormGroup">
+    <div class="form-outline mb-4">
+      <div class="d-flex align-items-center"><input formControlName="name" type="text" class="form-control fs-4 spaced">
+        <button class="btn btn-primary btn-sm" (click)=openConfirmDialog()><i class="bi bi-trash-fill"></i></button>
+      </div>
+      <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="alert alert-danger">
+        <div *ngIf="name?.errors?.['required'] || name?.errors?.['notOnlyWhitespace']">
+          Name is required.
+        </div>
+        <div *ngIf="name?.errors?.['maxlength']">
+          Name cannot be longer than 30 characters.
+        </div>
+      </div>
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+    </div>
+    <div class="text-center">
+      <button (click)="onSaveClick()" class="btn btn-primary btn-lg spaced">Save</button>
+      <button mat-dialog-close type="reset" class="btn btn-primary btn-lg">Cancel</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,9 @@
+<div class="popup-window">
+  <div class="text-center">
+    <p>Do you really want to delete {{ data.category.name }} category? All transactions within the category will be
+      lost.</p>
+    <button mat-dialog-close type="submit" class="btn btn-primary btn-lg spaced"
+      (click)=confirmDeletion(true)>Confirm</button>
+    <button mat-dialog-close class="btn btn-primary btn-lg" (click)=confirmDeletion(false)>Cancel</button>
+  </div>
+</div>
