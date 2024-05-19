@@ -6,9 +6,18 @@ SpendingsApp is a web application that allows users to track their finances. Use
 
 ## How to use
 
-After clicking the link above, a user sees a login page.
+After clicking the link above, a user sees a login page. To log in with tryout account without creating a new account use following credentials: username: user, password: password
+
+## Login Instructions
+
+To access the application using a trial account, please use the following credentials:
+
+- **Username**: `user`
+- **Password**: `password`
 
 ![Login page](screenshots/1.png)
+
+## Creating a New Account
 
 To create a new account, choose a link in the top right corner, "New? Join us!" or a link below the login panel, "Register." The view below is shown.
 
